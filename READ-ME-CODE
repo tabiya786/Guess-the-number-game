@@ -1,0 +1,23 @@
+import random
+
+number = random.randint(1, 10)
+
+player_name = input("Hello! What is your name? ")
+
+number_of_guesses = 0
+print("Great to have you here, {}! Let's play a game. I will think of a number between 1 and 10, and you have to guess the number. But remember, you only have 3 chances to guess.".format(player_name))
+
+while number_of_guesses < 3:
+    guess = int(input("Enter your guess: "))
+    number_of_guesses += 1
+
+    if guess < number:
+        print("Your guess is too low. Go up a little!")
+    elif guess > number:
+        print("Your guess is too high. Go down a little!")
+    else:
+        print("Congratulations, {}! You guessed the right number.".format(player_name))
+        break
+
+if guess != number:
+    print("Sorry, {}! You ran out of guesses. The number I was thinking of was {}.".format(player_name, number))
